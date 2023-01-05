@@ -1,0 +1,80 @@
+.listLinks {
+  background: var(--whiteTxt);
+  box-shadow: 7px 5px 15px var(--shadow1), inset -20px -20px 32px var(--shadow2);
+  border-radius: 8px;
+}
+.nav-button {
+  background: var(--violet);
+  color: var(--FFF) !important;
+}
+.navbar-brand span {
+  color: var(--FFF);
+}
+.nav-btn-list {
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 5px 0;
+}
+nav .dropdown-menu {
+  position: absolute !important;
+  z-index: 999;
+}
+.listLinks:hover {
+  color: var(--FFF) !important;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 7px 5px 15px var(--shadow1), inset -20px -20px 32px var(--shadow2);
+}
+.nav-button:hover {
+  transition: all 0.5s ease-in-out;
+}
+.listLinks li {
+  text-transform: capitalize;
+}
+.listLinks li a {
+  color: var(--secondTxt) !important;
+  font-weight: 400;
+}
+.listLinks li:hover a {
+  text-transform: capitalize;
+  color: var(--violet) !important;
+  font-weight: 500;
+}
+.listLinks li a.active {
+  color: var(--textblue) !important;
+  font-weight: 500;
+}
+.listLinks li a:active {
+  color: var(--violet) !important;
+  font-weight: 500;
+  transform: scale(1.1);
+}
+/* Responsive navbar */
+/* X-Small devices (portrait phones, less than 576px)*/
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/*/ Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/*/ Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  nav div.container {
+    flex-direction: column;
+  }
+}
+
+/*/ Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  nav div.container {
+    flex-direction: row;
+  }
+}
+
+/*/ X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+}
+
+/*/ XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+}
