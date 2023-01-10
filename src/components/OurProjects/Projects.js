@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
-import farm from "../../assets/videos/farm.mp4";
-import factory from "../../assets/videos/factory.mp4";
-import night from "../../assets/videos/night.mp4";
-import project from "../../assets/images/10.png";
+import city from "../../assets/images/projects/city.jpg";
+import factory from "../../assets/images/projects/factory.jpg";
+import hospital from "../../assets/images/projects/hopital.jpg";
+import university from "../../assets/images/projects/university.jpg";
+import lines from "../../assets/images/projects/lines.webp";
 import { multilang } from "../../components/functions/multilingual";
-import { AiFillPlaySquare } from "react-icons/ai";
 import "./Projects.css";
 export const Projects = (props) => {
   let Language = props.lang;
   const projectsLang = multilang(Language).projects;
   const projectsLangHead = multilang(Language).projects.info.head;
   const projectsLangPara = multilang(Language).projects.info.paragraph;
-  const [index, setIndex] = useState(0);
+  const [, setIndex] = useState(0);
   const settings = {
     className: "center",
     centerMode: true,
@@ -49,28 +49,28 @@ export const Projects = (props) => {
       },
     ],
   };
-  const fireVideo = (e, n, onfun, offun) => {
-    if (e === n) {
-      return onfun;
-    } else {
-      return offun;
-    }
-  };
-  useEffect(() => {
-    console.log(index);
-    fireVideo();
-  }, [index]);
 
+  /**
+ *   1   "High and long lines",
+     2   "hospitals",
+     3   "city connections",
+     4   "University",
+     5   "factory supply",
+ */
   const dataProjects = [
-    { video: farm, head: projectsLangHead[0], paragraph: projectsLangPara[0] },
-    { video: "", head: projectsLangHead[1], paragraph: projectsLangPara[2] },
-    { video: night, head: projectsLangHead[2], paragraph: projectsLangPara[2] },
-    { video: "", head: projectsLangHead[3], paragraph: projectsLangPara[0] },
+    { head: projectsLangHead[0], paragraph: projectsLangPara[0], img: lines },
     {
-      video: factory,
-      head: projectsLangHead[4],
-      paragraph: projectsLangPara[0],
+      head: projectsLangHead[1],
+      paragraph: projectsLangPara[2],
+      img: hospital,
     },
+    { head: projectsLangHead[2], paragraph: projectsLangPara[2], img: city },
+    {
+      head: projectsLangHead[3],
+      paragraph: projectsLangPara[0],
+      img: university,
+    },
+    { head: projectsLangHead[4], paragraph: projectsLangPara[0], img: factory },
   ];
 
   return (
@@ -87,39 +87,13 @@ export const Projects = (props) => {
                   <div className="p-2" key={n}>
                     <div className="card project-card">
                       <div className="media-overlay">
-                        {!el.video ? (
-                          <img
-                            src={project}
-                            className="card-img-top"
-                            alt=""
-                            height={"100%"}
-                          />
-                        ) : (
-                          <div className="video-overlay position-relative h-100 w-100">
-                            <span
-                              className={
-                                "position-absolute  bottom-0 start-20 text-light h1 text-center"
-                              }
-                            >
-                              {<AiFillPlaySquare />}
-                            </span>
-                            <video
-                              type="video/mp4"
-                              src={el.video}
-                              alt={el.video}
-                              autoPlay
-                              muted
-                              onMouseOver={(e) => {
-                                e.target.play();
-                              }}
-                              loop
-                              onMouseOut={(e) => {
-                                e.target.pause();
-                              }}
-                              height={"100%"}
-                            />
-                          </div>
-                        )}
+                        <img
+                          src={el.img}
+                          alt={el.head}
+                          height="100%"
+                          width="100%"
+                        />
+                       
                       </div>
 
                       <div className="card-body">
